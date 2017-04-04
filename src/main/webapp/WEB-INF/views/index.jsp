@@ -4,7 +4,6 @@
 
 <%
 System.out.println(request.getSession().getAttribute("id"));
-
 %>
 <!DOCTYPE html>
 <html>

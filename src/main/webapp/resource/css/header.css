@@ -1,0 +1,132 @@
+@CHARSET "UTF-8";
+
+
+.hr-menu{
+		
+	display: inline-block;
+}
+
+.hr-menu ul{
+	
+	overflow: auto;
+	
+}
+.hr-menu li{
+	
+	float:left;
+	
+}
+.hr-menu li:first-child{
+	background: none !important;
+	padding-left: 0px !important;
+}
+.hr-menu li a{
+	color:#979797;
+	text-decoration: none;
+}
+.hr-menu li a:hover{
+	text-decoration: underline;
+}
+
+
+/* -----header style-------------------------------------- */
+
+#logo{
+	position:absolute;
+	top: 23px;
+	left: 0px;	
+
+}
+#main-menu{
+	position:absolute;
+	top: 27px;
+	left: 200px;
+	
+}
+#main-menu a{
+	color: #000000;
+}
+#main-menu>ul>li>a{
+	font-family:맑은 고딕, 고딕, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+}
+#main-menu li{
+	padding-left: 24px;
+	background: url("../images/bg-main-menu-vsp.png") no-repeat 13px center;
+}
+
+
+#lecture-search-form{
+	position:absolute;
+	top:21px;
+	height: 25px;
+	width:308px;
+	border:5px solid #8CBA34;
+	left: 468px;
+}
+
+
+#lecture-search-form fieldset label{
+
+	display:block;
+	width: 55px;
+	height: 25px;
+	line-height: 25px;
+/* 	font-size: 12px; */
+	font-weight: bold;
+	float: left;
+	text-indent: 5px; /*들여쓰기*/
+	color:#979797;
+}
+#lecture-search-form fieldset input[type=text]{
+
+	display: block;
+	width: calc(100% - 55px - 31px);
+	height: 25px;
+	border: 0px;
+	float: left;
+}
+#lecture-search-form fieldset input[type=submit]{
+
+	display: block;
+	width: 31px;
+	height:25px;
+	border:none;
+	background: url("../images/btn-zoom.png") no-repeat center;
+	border-left: 1px solid #8CBA34;
+	cursor: pointer;
+	text-indent: -999px;
+	
+}
+
+#account-menu{
+	top: 20px;
+	position:absolute;
+	right:0px;	
+}
+
+#member-menu{
+	top: 40px;
+	position:absolute;
+	right: 0px;	
+	
+}
+
+#account-menu li{
+	padding-left: 24px;
+	font-size: 8px;
+	background: url("../images/bg-main-menu-vsp.png") no-repeat 13px center;
+}
+
+
+.clearfix
+{
+	overflow:auto;
+	zoom: 1;
+}
+
+/*수평은 >li float:left; 
+	
+
+*/
