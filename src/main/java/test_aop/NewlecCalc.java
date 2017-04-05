@@ -23,7 +23,7 @@ public class NewlecCalc implements Calc{
    @Override
    public int sub() {
       // TODO Auto-generated method stub
-      int result = x + y;
+      int result = x - y;
 
       return result;
    }
