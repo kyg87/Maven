@@ -1,9 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<!-- 태그라이브러리 -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="root" value="${pageContext.request.contextPath}"/>    
+    
+    
 <header id="header">
 	<div class="content-container">
+	
 		<h1 id="logo">
-			<img src="/MavenPrj/resource/images/logo.png" alt="뉴렉처 온라인">
+			<img src="${root}/resource/images/logo.png" alt="뉴렉처 온라인">
 		</h1>
 		<section>
 			<h2 class="hidden">헤더</h2>
@@ -43,9 +50,9 @@
 				<h3 class="hidden">회원메뉴</h3>
 				<ul>
 					<li class="first"><img alt="마이페이지"
-						src="../images/menuMyPage.png"></li>
+						src="${root}/resource/images/menuMyPage.png"></li>
 					<li><a href="notice.html"><img alt="고객센터"
-							src="../images/menuCustomer.png"></a></li>
+							src="${root}/resource/images/menuCustomer.png"></a></li>
 				</ul>
 			</nav>
 		</section>

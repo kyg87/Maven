@@ -15,12 +15,32 @@
    metadata-complete="false" version="3.1">
   <display-name>Archetype Created Web Application</display-name>
 
-  
+<!-- 아래꺼를 굴러가게 하는 코드 -->
+<listener>
+   <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+
+<!-- 아래 박스를 추가적으로 더 설정하고 싶을 때 -->
+  <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<param-value>
+  	/WEB-INF/spring/service-context.xml
+  	/WEB-INF/spring/security-context.xml
+  	</param-value>
+  </context-param>
+ 
+ 
+ <!-- 디스패처 서블릿 나눈거 위치 알려줌 -->
   <servlet>
    <servlet-name>dispatcher</servlet-name>
    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	   <init-param>
+	    	<param-name>contextConfigLocation</param-name>
+	    	<param-value>/WEB-INF/spring/servlet-context.xml</param-value>
+	   </init-param>
    <load-on-startup>1</load-on-startup>
    </servlet>
+   
    <servlet-mapping>
    <servlet-name>dispatcher</servlet-name>
    <url-pattern>/</url-pattern>

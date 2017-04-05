@@ -80,7 +80,7 @@ public class MySQLNoticeDao implements NoticeDao{
 	public int getSize() {
 
 		
-		return getSize("TITEL","");
+		return getSize("TITLE","");
 	}
 
 	@Override

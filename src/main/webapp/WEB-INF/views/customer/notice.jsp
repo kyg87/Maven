@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <main id="main">   
    <h2 class="main-title">공지사항[${size }]</h2>
-   
    <div class="breadcrumb">
       <h3 class="hidden">현재</h3>
       <ul>
@@ -78,11 +78,8 @@
                       <%} %>  --%>
          </tbody>
       </table>
-   
    </div>
-   <%-- <%
-                  int last = (size % 10) > 0 ? size / 10+1 : size / 10;
-               %> --%>
+   <%-- int last = (size % 10) > 0 ? size / 10+1 : size / 10; --%>
    
    <div class="margin">${param.p }/${last }pages</div>
    <div class="margin">
