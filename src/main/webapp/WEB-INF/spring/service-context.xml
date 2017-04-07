@@ -6,8 +6,17 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
-       
+    <!-- //dataSource -->   
+    <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+       <property name="driverClassName"  value="com.mysql.jdbc.Driver"/>
+       <property name="url" value="jdbc:mysql://211.238.142.84/newlecture?autoReconnect=true&amp;useSSL=false&amp;characterEncoding=UTF-8"/>
+       <property name="username" value="newlec" />
+       <property name="password" value="sclass"/>
+    </bean>
+    
     <bean class="com.newlecture.web.data.mysql.MySQLNoticeDao" />
 	<bean class="com.newlecture.web.data.mysql.MySQLNoticeFileDao" />
+	
+	<bean class="com.newlecture.web.data.mysql.MySQLMemberRoleDao" />
 	
 </beans>

@@ -15,14 +15,14 @@ System.out.println(request.getSession().getAttribute("id"));
 	<header>
 		<a href="../index.html">Home</a> 
 		<c:if test="${empty sessionScope}">
-		<a href="account/login">로그인</a>
+		<a href="joinus/login">로그인</a>
 		</c:if>
 		
 		<c:if test="${not empty sessionScope}">
 		<a href="logout">${sessionScope.id}님 로그아웃</a>
 		</c:if>
 		
-		<a href="account/login">회원가입</a> 
+		<a href="joinus/join">회원가입</a> 
 		<a href="customer/notice">고객센터</a>
 	</header>
 	<h1>홈페이지 환영</h1>

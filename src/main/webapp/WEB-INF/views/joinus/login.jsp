@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="root" value="${pageContext.request.contextPath}"/>   
 
 <!DOCTYPE html>
 <html>
@@ -10,14 +11,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<header>
+<!-- 	<header>
 		<a href="index">Home</a>
 		<a href="">로그인</a>
 		<a href="agree.html">회원가입</a>
 		<a href="customer/notice">고객센터</a>
-	</header>
+	</header> -->
 	<h1>로그인</h1>
-	<form method="post">
+	<form action="${root}/j_spring_security_check" method="post">
 		<fieldset>			
 			<table>
 				<c:if test="${not empty validate && not validate}">
@@ -28,11 +29,11 @@
 				<c:if test=""></c:if>
 				<tr>
 					<th>아이디:</th>
-					<td><input name="id" type="text"/></td>
+					<td><input name="j_username" type="text"/></td>
 				</tr>
 				<tr>
 					<th>비밀번호:</th>
-					<td><input name="pwd" type="password"/></td>
+					<td><input name="j_password" type="password"/></td>
 				</tr>
 				<tr>
 					<td>
