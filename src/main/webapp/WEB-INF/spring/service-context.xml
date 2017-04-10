@@ -13,10 +13,19 @@
        <property name="username" value="newlec" />
        <property name="password" value="sclass"/>
     </bean>
+
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+    
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" 
+		    value="classpath:com/newlecture/web/data/dao/mybatis/mapper/*.xml"></property>
+	</bean>
     
     <bean class="com.newlecture.web.data.mysql.MySQLNoticeDao" />
 	<bean class="com.newlecture.web.data.mysql.MySQLNoticeFileDao" />
-	
 	<bean class="com.newlecture.web.data.mysql.MySQLMemberRoleDao" />
 	
 </beans>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.newlecture.web.data.dao.NoticeDao">
+	<select id="getList" resultType="com.newlecture.web.data.view.NoticeView">
+	    SELECT * 
+	    FROM NOTICE_VIEW 
+	    Where BINARY ${param2} like '%${param3}%' 
+	    limit 0,10;
+	</select>
+	
+	<select id="getSize" resultType="Integer">
+	    SELECT COUNT(CODE)SIZE 
+	    FROM NOTICE 
+	    WHERE BINARY ${param1} like '%${param2}%'
+	</select>
+	
+	<select id="get" resultType="com.newlecture.web.data.view.NoticeView">
+	    SELECT * FROM NOTICE_VIEW WHERE CODE = #{code}
+	</select>
+		
+	<select id="prev">
+	    SELECT * FROM NOTICE_VIEW WHERE CAST(CODE AS unsigned) &gt; CAST(#{code} AS unsigned) ORDER BY REGDATE ASC limit 0,1
+	</select>
+	
+	<select id="next">
+	    SELECT * FROM NOTICE_VIEW WHERE CAST(CODE AS unsigned) &lt; CAST(#{code} AS unsigned) ORDER BY REGDATE DESC limit 0,1
+	</select>
+	
+	<select id="lastCode" resultType="String">
+	    SELECT MAX(cast(CODE as unsigned)) CODE FROM NOTICE_VIEW
+	</select>
+	
+	<select id="delete">
+	    DELETE FROM NOTICE WHERE CODE = #{code}
+	</select>
+	
+	<select id="update">
+	    UPDATE NOTICE SET TITLE =#{title},
+	    CONTENT =#{content} 
+	    WHERE CODE =#{code}
+	</select>
+	
+	
+	
+</mapper>

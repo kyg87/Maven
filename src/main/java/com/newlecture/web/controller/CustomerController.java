@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.proxy.Dispatcher;
 import org.springframework.stereotype.Controller;
@@ -40,10 +41,14 @@ public class CustomerController {
    @Autowired
    private NoticeFileDao noticeFileDao;
    
+   @Autowired
+   private SqlSession sqlSession;
+   
+   
    @RequestMapping("notice")
    //@ResponseBody
    public String notice(
-      @RequestParam(value="p", defaultValue="1") String page,
+      @RequestParam(value="p", defaultValue="1") Integer page,
       @RequestParam(value="f", defaultValue="Title") String field, 
       @RequestParam(value="q", defaultValue="") String query, 
       Model model){
@@ -58,7 +63,9 @@ public class CustomerController {
       else if(size%10!=0)
          last = (size/10)+1;   
       
-      List<NoticeView> list = noticeDao.getList();
+      //List<NoticeView> list = noticeDao.getList();
+      List<NoticeView> list = sqlSession.getMapper(NoticeDao.class).getList(page,field,query);
+      
       model.addAttribute("list",list);      
       model.addAttribute("last", last);
       model.addAttribute("size", size);
