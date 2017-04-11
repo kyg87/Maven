@@ -79,7 +79,7 @@ public class CustomerController {
    public String noticeDetail(
       @RequestParam(value="c", defaultValue="") String code, Model model){
       
-      NoticeView n = noticeDao.get(code);
+      /*NoticeView n = noticeDao.get(code);
       NoticeView next = noticeDao.next(code);
       NoticeView prev = noticeDao.prev(code);
 
@@ -88,8 +88,11 @@ public class CustomerController {
       model.addAttribute("list", list);
       model.addAttribute("prev", prev);
       model.addAttribute("next", next);
-      model.addAttribute("n", n);   
+      model.addAttribute("n", n);   */
       
+	   model.addAttribute("n", 
+			   sqlSession.getMapper(NoticeDao.class).get(code));
+	   
       return "customer.notice-detail";
    }
    

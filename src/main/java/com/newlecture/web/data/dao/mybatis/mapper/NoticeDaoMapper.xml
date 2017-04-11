@@ -5,10 +5,14 @@
 
 <mapper namespace="com.newlecture.web.data.dao.NoticeDao">
 	<select id="getList" resultType="com.newlecture.web.data.view.NoticeView">
-	    SELECT * 
+	    <!-- SELECT * 
 	    FROM NOTICE_VIEW 
 	    Where BINARY ${param2} like '%${param3}%' 
-	    limit 0,10;
+	    limit ${(param1-1)*10},10; -->
+	    SELECT * 
+	    FROM NOTICE_VIEW 
+	    Where BINARY ${field} like '%${query}%' 
+	    limit ${(page-1)*10},10;
 	</select>
 	
 	<select id="getSize" resultType="Integer">
@@ -17,9 +21,9 @@
 	    WHERE BINARY ${param1} like '%${param2}%'
 	</select>
 	
-	<select id="get" resultType="com.newlecture.web.data.view.NoticeView">
+	<!-- <select id="get" resultType="com.newlecture.web.data.view.NoticeView">
 	    SELECT * FROM NOTICE_VIEW WHERE CODE = #{code}
-	</select>
+	</select> -->
 		
 	<select id="prev">
 	    SELECT * FROM NOTICE_VIEW WHERE CAST(CODE AS unsigned) &gt; CAST(#{code} AS unsigned) ORDER BY REGDATE ASC limit 0,1
@@ -32,6 +36,25 @@
 	<select id="lastCode" resultType="String">
 	    SELECT MAX(cast(CODE as unsigned)) CODE FROM NOTICE_VIEW
 	</select>
+	
+<!-- 	<insert id="add">
+	    <selectKey order ="BEFORE" keyProperty="code" resultType ="String">
+	        SELECT MAX(cast(CODE as unsigned))+1 CODE FROM NOTICE
+	    </selectKey>
+	    
+	    INSERT INTO NOTICE(
+	    CODE,
+	    TITLE,
+	    WRITER,
+	    CONTENT
+	    ) 
+	    VALUES(
+	    #{code},
+	    #{title},
+	    #{writer},
+	    #{content}
+	    )
+	</insert> -->
 	
 	<select id="delete">
 	    DELETE FROM NOTICE WHERE CODE = #{code}
