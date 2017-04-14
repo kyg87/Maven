@@ -28,4 +28,13 @@
 	<bean class="com.newlecture.web.data.mysql.MySQLNoticeFileDao" />
 	<bean class="com.newlecture.web.data.mysql.MySQLMemberRoleDao" />
 	
+	<bean class="com.newlecture.web.data.dao.LanguageDao" />
+	<bean class="com.newlecture.web.data.dao.LanguageVerDao" />
+	<bean class="com.newlecture.web.data.dao.LectureDao" />
+	<bean class="com.newlecture.web.data.dao.LectureLanguageDao" />
+	<bean class="com.newlecture.web.data.dao.LecturePlatformDao" />
+	<bean class="com.newlecture.web.data.dao.LevelDao" />
+	<bean class="com.newlecture.web.data.dao.PlatformDao" />
+	<bean class="com.newlecture.web.data.dao.PlatformVerDao" />
+	
 </beans>
